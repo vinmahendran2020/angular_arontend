@@ -1,0 +1,113 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 13px;
+  color: #5f6062;
+  text-align: left;
+  line-height: 15px;
+}
+
+.description {
+  font-size: 13px;
+  color: #5f6062;
+  text-align: left;
+  line-height: 15px;
+  margin-top: 20px;
+}
+
+.divider {
+  margin-top: 20px;
+  margin-left: -30px;
+  margin-right: -30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.run-time {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000;
+  line-height: 15px;
+}
+
+.time-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.start-time > ::ng-deep div[data-id="startTime"] {
+  width: 250px;
+}
+
+.end-time {
+  margin-left: 90px;
+}
+
+.end-time > ::ng-deep div[data-id="endTime"] {
+  width: 250px;
+}
+
+.timezone {
+  margin-left: 90px;
+  width: 250px;
+}
+
+.timezone > ::ng-deep div[data-id="timezone"] {
+  width: 250px;
+}
+
+.recurrence {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000;
+  line-height: 15px;
+}
+
+.triggers {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: row;
+}
+
+.triggers ::ng-deep div[data-id="triggers"] > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.triggers ::ng-deep span.form-check-label {
+  font-size: 13px !important;
+  color: #000000 !important;
+}
+
+.hour-minites {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 15px;
+  margin-left: -152px;
+}
+
+.hour-minites .textbox {
+  width: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.hour-minites .label {
+  font-size: 13px;
+  color: #000000;
+  line-height: 15px;
+  margin-bottom: 7px;
+}
+
+.submit {
+  margin-top: 20px;
+  width: 118px;
+}

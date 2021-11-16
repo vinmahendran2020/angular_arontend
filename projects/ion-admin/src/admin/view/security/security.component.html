@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="status">
+    <ion-schedule-status type="security" title="Intraday Security Settlement Trigger"
+      description="The Intraday Security Settlement trigger submits all market obligations in open or pending status and deliveries for opportunistic settlement."
+      [message]="inProgressMessage$ | async" [progress]="progress$ | async"
+      [settlementDate]="settlementDate$ | async" (settlementDateChange)="onSettlementDateChange($event)"
+      (run)="onRun()"></ion-schedule-status>
+  </div>
+  <div class="divider"></div>
+  <div class="scheduler">
+    <ion-schedule-viewer title="Automated Security Settlement Scheduler" [message]="submitMessage$ | async"
+      [schedule]="schedule$ | async" (edit)="openEdit()" (toggle)="onToggle($event)" (clear)="onMessageClear()">
+    </ion-schedule-viewer>
+  </div>
+</div>
+<dtcc-modal-base [visible]="edit$ | async" class="medium-dialog" [modalOptions]="modalOptions" (close)="closeEdit()"
+  (visibleChange)="!$event && closeEdit()">
+  <span header>Edit Schedule</span>
+  <div content>
+    <ion-schedule-editor *ngIf="edit$ | async" [schedule]="schedule$ | async" (submit)="submitEdit($event)">
+    </ion-schedule-editor>
+  </div>
+</dtcc-modal-base>

@@ -1,0 +1,52 @@
+:host {
+  width: 790px;
+  height: 81px;
+  background: #ffffff;
+  border: 1px solid #ce0000;
+  border-top-style: solid;
+  border-top-width: 10px;
+  border-top-color: #ce0000;
+  display: block;
+  margin: 30px 40px 0px 40px;
+}
+
+.header {
+  height: 37px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 30px 0px 30px;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.title {
+  font-family: 'Arial Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #000000;
+  text-align: left;
+  margin-left: 24px;
+}
+
+.icon {
+  color: #ce0000;
+  font-size: 18pt;
+}
+
+.message {
+  font-size: 12px;
+  color: #5f6062;
+  text-align: left;
+  margin: 0px 30px 20px 30px;
+}

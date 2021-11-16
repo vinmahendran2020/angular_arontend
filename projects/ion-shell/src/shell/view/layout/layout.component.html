@@ -1,0 +1,16 @@
+<div class="main">
+  <div class="header">
+    <ion-shell-header></ion-shell-header>
+    <ion-shell-schedule [titles]="titles"></ion-shell-schedule>
+    <ion-shell-status [title]="title"></ion-shell-status>
+  </div>
+  <div class="content">
+    <div class="absolute">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="footer">
+    <ion-shell-footer></ion-shell-footer>
+  </div>
+</div>
+<ion-session-timeout></ion-session-timeout>

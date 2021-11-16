@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="content">
+    <div class="dtcc-component tab-container" data-settlement>
+      <tabset data-settlement>
+        <tab class="tab-pane" heading="Start of Day" [active]="(active$ | async) === 'start'" id="start"
+          (selectTab)="onSelect($event.id)">
+        </tab>
+        <tab class="tab-pane" heading="End of Day" [active]="(active$ | async) === 'end'" id="end"
+          (selectTab)="onSelect($event.id)">
+        </tab>
+        <div class="outlet">
+          <router-outlet></router-outlet>
+        </div>
+      </tabset>
+    </div>
+  </div>
+</div>

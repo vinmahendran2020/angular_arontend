@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="left-side">
+    <ul class="breadcrumb dtcc-component">
+      <li class="breadcrumb-item active" *ngFor="let title of titles">
+        <a class="path-item">{{title}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="right-side">
+    <div>
+      <ul class="right-menu-thin">
+        <li class="with-border">
+          <a *ngIf="hasNetting$ | async">Netting Cycle at {{netting$ | async | date:'shortTime'}}</a>
+          <a *ngIf="(!(hasNetting$ | async))" disabled>Netting Cycle Inactive</a>
+        </li>
+        <li class="with-border">
+          <a *ngIf="hasSecurity$ | async">Security Settlement at {{security$ | async | date:'shortTime'}}</a>
+          <a *ngIf="(!(hasSecurity$ | async))" disabled>Security Settlement Inactive</a>
+        </li>
+        <li class = "without-border">
+          <a *ngIf="hasCash$ | async">Cash Settlement at {{cash$ | async | date:'shortTime'}}</a>
+          <a *ngIf="(!(hasCash$ | async))" disabled>Cash Settlement Inactive</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="summary">
+  <div class="title">Order</div>
+  <div class="table">
+    <div class="table-header">
+      <div class="table-cell id">
+        <span class="text">
+          #
+        </span>
+      </div>
+      <div class="table-cell receiverId">
+        <span class="text">
+          <dtcc-form-label required=true class="mr-2">
+            Reciever ID
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell cusip">
+        <span class="text">
+          <dtcc-form-label required=true class="mr-2">
+            CUSIP
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell quantity">
+        <span class="text">
+          <dtcc-form-label required=true class="mr-2">
+            Quantity
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell amount">
+        <span class="text">
+          <dtcc-form-label required=true class="mr-2" toolTip="A $0 amount indicates a free deliver order"
+            tooltipPlacement="bottom">
+            Amount ($)
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell value">
+        <span class="text">
+          <dtcc-form-label class="mr-2">
+            Free / Valued
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell prefunded">
+        <span class="text">
+          <dtcc-form-label class="mr-2">
+            Prefunded
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell settlement">
+        <span class="text">
+          <dtcc-form-label required=true class="mr-2">
+            Settlement Date
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell comment">
+        <span class="text">
+          <dtcc-form-label class="mr-2">
+            Comment
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell clone">
+        <span class="text">
+        </span>
+      </div>
+      <div class="table-cell remove">
+        <span class="text">
+        </span>
+      </div>
+    </div>
+    <ion-order-summary *ngFor="let id of (orderIds$ | async)" [id]="id"></ion-order-summary>
+    <div class="table-footer">
+      <ion-form-item>
+        <button class="dtcc-component btn form-button btn-secondary addrow-button" (click)="addRow()">
+          Add Row
+        </button>
+      </ion-form-item>
+    </div>
+    <div class="table-blank-row"></div>
+  </div>
+  <ion-form start=true>
+    <ion-form-item>
+      <button [disabled]="submitDisabled$ | async" class="dtcc-component btn btn-primary form-button submit-button"
+        (click)="submit()">
+        Submit
+      </button>
+    </ion-form-item>
+    <ion-form-item>
+      <button class="dtcc-component btn btn-secondary form-button form-button reset-button" (click)="reset()">
+        Reset
+      </button>
+    </ion-form-item>
+  </ion-form>
+</div>

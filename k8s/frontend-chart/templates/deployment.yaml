@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "frontend-chart.name" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: ionapp
+    tier: {{ .Values.labels.tier }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  progressDeadlineSeconds: {{ .Values.progressDeadlineSeconds }}
+  selector:
+    matchLabels:
+      app: ionapp
+      tier: {{ .Values.labels.tier }}
+  template:
+    metadata:
+      labels:
+        app: ionapp
+        tier: {{ .Values.labels.tier }}
+        date: "{{ now | unixEpoch }}"
+    spec:
+      containers:
+        - name: {{ include "frontend-chart.name" . }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: "{{ .Values.healthCheck.path | default "/" }}"
+              port: 80
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      

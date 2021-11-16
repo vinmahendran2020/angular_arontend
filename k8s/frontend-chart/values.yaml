@@ -1,0 +1,43 @@
+# Number of pods to be created
+replicaCount: 1
+
+# ECR Image values
+# Overrides the image details from command line
+image:
+  registry: ""
+  repository: ""
+  pullPolicy: Always
+  tag: ""
+  
+nameOverride: ""
+fullnameOverride: ""
+
+# Deployment resources labels to be grouped
+labels:
+  tier: frontend
+
+# Service details
+service:
+  type: NodePort
+  port: 80
+
+# Resource request for cpu (measure in milli-cpus) and memory (measured in Migibytes)
+# This is needed for metrics server to gather data about pod resource usage and relay to horizontal pod autoscaling
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+# Autoscaling details for pods
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+# Timeout seconds for deployment
+progressDeadlineSeconds: 30
+
+healthCheck:
+  path: /favicon.ico

@@ -1,0 +1,60 @@
+<div class="table-cell id">
+  <span class="text">
+    {{id}}
+  </span>
+</div>
+<div class="table-cell receiverId">
+  <dtcc-textbox class="d-block participant-text" validateOnChange=true validateOnFocusOut=true
+    [ngModel]="receiver$ | async" [validationError]="receiverError$ | async" (ngModelChange)="onReceiverChange($event)">
+  </dtcc-textbox>
+</div>
+<div class="table-cell cusip">
+  <dtcc-textbox icon="fa-search" class="d-block cusip-text" [ngModel]="cusip$ | async"
+    validateOnChange=true [validationError]="cusipError$ | async" (iconClick)="openCusipDialog()"
+    (ngModelChange)="onCusipChange($event)">
+  </dtcc-textbox>
+</div>
+<div class="table-cell quantity">
+  <dtcc-textbox class="d-block quantity-text" validateOnChange=true validateOnFocusOut=true
+    [ngModel]="quantity$ | async" [validationError]="quantityError$ | async" (ngModelChange)="onQuantityChange($event)">
+  </dtcc-textbox>
+</div>
+<div class="table-cell amount">
+  <dtcc-textbox class="d-block amount-text" validateOnChange=true validateOnFocusOut=true
+    [validationError]="amountError$ | async" [ngModel]="amount$ | async" (ngModelChange)="onAmountChange($event)">
+  </dtcc-textbox>
+</div>
+<div class="table-cell value">
+  {{value$ | async}}
+</div>
+<div class="table-cell prefunded">
+  <dtcc-checkbox class="d-block" dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="[{id: '1'}]"
+    [ngModel]="[(prefunded$ | async) ? '1' : '0']" (ngModelChange)="onPrefundedChange($event)">
+  </dtcc-checkbox>
+</div>
+<div class="table-cell settlement">
+  <dtcc-datepicker class="d-block settlement-text" [ngModel]="date$ | async" validateOnChange=true
+    [validationError]="dateError$ | async" (ngModelChange)="onDateChange($event.date)"
+    toolTip="Defaults to the current date" tooltipPlacement="bottom">
+  </dtcc-datepicker>
+</div>
+<div class="table-cell comment">
+  <ion-order-comment [comment]="comment$ | async" (edited)="onCommentChange($event)">
+  </ion-order-comment>
+</div>
+<div class="table-cell clone" [class.icon-disabled]="!(clonable$ | async)">
+  <div class="clone-icon"><a (click)="clone()" title="Copy Row"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+  </div>
+</div>
+<div class="table-cell remove" [class.icon-disabled]="!(deletable$ | async)">
+  <div class="remove-icon"><a (click)="remove()" title="Delete Row"><i class="fa fa-trash" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<dtcc-modal-base [visible]="cusipSearch$ | async" class="medium-dialog" [modalOptions]="modalOptions"
+  (close)="closeCusipDialog()" (visibleChange)="!$event && closeCusipDialog()">
+  <span header>CUSIP Search</span>
+  <div content>
+    <ion-cusip-dialog *ngIf="cusipSearch$ | async" (trigger)="onCusipSelect($event)"></ion-cusip-dialog>
+  </div>
+</dtcc-modal-base>

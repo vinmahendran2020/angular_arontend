@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.action-text {
+  width: 200px;
+}
+
+.amount-text {
+  width: 200px;
+}

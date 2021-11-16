@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="status">
+    <ion-schedule-status type="netting" title="Intraday Netting Trigger" description="The Intraday Netting trigger nets all novated trades and open obligations by Participant Broker, Security, and
+    Settlement Date." [message]="inProgressMessage$ | async" [progress]="progress$ | async" (run)="onRun()">
+    </ion-schedule-status>
+  </div>
+  <div class="divider"></div>
+  <div class="scheduler">
+    <ion-schedule-viewer title="Automated Netting Scheduler" [message]="submitMessage$ | async"
+      [schedule]="schedule$ | async" (edit)="openEdit()" (toggle)="onToggle($event)" (clear)="onMessageClear()">
+    </ion-schedule-viewer>
+  </div>
+</div>
+<dtcc-modal-base [visible]="edit$ | async" class="medium-dialog" [modalOptions]="modalOptions" (close)="closeEdit()"
+  (visibleChange)="!$event && closeEdit()">
+  <span header>Edit Schedule</span>
+  <div content>
+    <ion-schedule-editor *ngIf="edit$ | async" [schedule]="schedule$ | async" (submit)="submitEdit($event)">
+    </ion-schedule-editor>
+  </div>
+</dtcc-modal-base>

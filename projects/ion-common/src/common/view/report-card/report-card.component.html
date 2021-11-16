@@ -1,0 +1,22 @@
+<div class="report">
+    <div class="content">
+        <div class="title">
+            {{title}}
+            <span
+                *ngIf="toolTip"
+                class="help-icon"
+                [placement]="tooltipPlacement"
+                [tooltip]="toolTip"
+            >
+                <i class="fa fa-info"></i>
+            </span>
+        </div>
+        <div [ngClass]="negative ? 'negative' : 'amount'">
+            <span *ngIf="negative">(</span>
+            {{prefix}}{{absValue}} 
+            <span *ngIf="negative">)</span>
+            <span *ngIf="direction" class="direction">{{direction}}</span>
+        </div>
+
+    </div>
+</div>

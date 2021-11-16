@@ -1,0 +1,19 @@
+.search-form {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.form-container {
+  display: flex;
+  width: calc(100% + 10px);
+  margin: -5px;
+  justify-content: flex-start;
+}
+
+.form-item {
+  padding: 5px;
+}
+
+.participant-text {
+  width: 200px;
+}

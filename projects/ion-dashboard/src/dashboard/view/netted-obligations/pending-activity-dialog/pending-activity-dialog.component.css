@@ -1,0 +1,14 @@
+::ng-deep .large-dialog {
+  max-width: 1200px;
+}
+
+.dialog {
+  position: relative;
+}
+
+.header {
+  display: flex;
+  font-size: 14px;
+  color: #5f6062;
+  text-align: left;
+}

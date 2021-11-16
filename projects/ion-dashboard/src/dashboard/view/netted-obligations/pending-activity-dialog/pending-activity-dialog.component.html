@@ -1,0 +1,15 @@
+<div class="dialog">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-block header">Find below the pending activty for <b>{{(obligation$ | async)?.cusip}}.</b></div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 10px">
+    <div class="col-12">
+      <dtcc-datagrid [style.height]="defaultGridHeight" [defaultGridHeight]="defaultGridHeight"
+        [isBasicGrid]="isBasicGrid" [gridOptions]="gridOptions" [gridConfig]="gridConfig"
+        [rowData]="(transactions$ | async)" [viewColumnDefs]="columnDefs">
+      </dtcc-datagrid>
+    </div>
+  </div>
+</div>

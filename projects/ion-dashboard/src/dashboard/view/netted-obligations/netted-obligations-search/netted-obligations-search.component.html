@@ -1,0 +1,18 @@
+<ion-form (enter)="enter()">
+  <ion-form-item>
+    <dtcc-textbox label="Participant ID" required=true name="ParticipantId" class="d-block form-input"
+      validateOnChange=true validateOnFocusOut=true [validationError]="participantIdError$ | async"
+      [ngModel]="participantId$ | async" (ngModelChange)="onParticipantIdChange($event)">
+    </dtcc-textbox>
+  </ion-form-item>
+  <ion-form-item>
+    <button type="button" [disabled]="searchDisabled$ | async" class="dtcc-component btn btn-primary form-button" (click)="search()">
+      Search
+    </button>
+  </ion-form-item>
+  <ion-form-item>
+    <button type="button" class="dtcc-component btn btn-secondary form-button form-button reset-button" (click)="reset()">
+      Reset
+    </button>
+  </ion-form-item>
+</ion-form>

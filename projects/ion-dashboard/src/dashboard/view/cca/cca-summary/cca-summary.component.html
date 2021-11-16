@@ -1,0 +1,18 @@
+<div class="summary">
+    <div class="title">Clearing Cash Adjustments (CCA) <span class="panel-info"> for Participant ID {{summary.participantId}}</span></div>
+    <div class="row" style="margin: 15px;">
+        <div class="col-12">
+          <dtcc-datagrid [style.height]="defaultGridHeight" [defaultGridHeight]="defaultGridHeight"
+            [isBasicGrid]="isBasicGrid" [gridOptions]="gridOptions" [gridConfig]="gridConfig" [rowData]="summary.adjustments"
+            [viewColumnDefs]="columnDefs" [showActionBar]="isBasicGrid">
+          </dtcc-datagrid>
+        </div>
+      </div>
+</div>
+
+<dtcc-right-slideout *ngIf="detailVisible$ | async" [open]="detailVisible$ | async" class="large-dialog" width="60%"
+  [height]="height" (backdropClick)="closeDetail()">
+  <div content>
+    <ion-cca-detail *ngIf="detailVisible$ | async"></ion-cca-detail>
+  </div>
+</dtcc-right-slideout>

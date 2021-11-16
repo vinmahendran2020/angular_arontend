@@ -1,0 +1,74 @@
+<div class="dialog-form" (keydown.enter)="search()">
+
+  <div class="row" style="margin-bottom: 10px;" *ngIf="hasError$ | async">
+    <div class="col-12">
+      <ion-error-message [message]="error$ | async" (close)="closeError()"></ion-error-message>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="d-block header">Please search with the following criteria below.</div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 10px">
+    <div class="col-6">
+      <dtcc-textbox label="Security Name" name="securityName" class="d-block tb-m" validateOnChange=true
+        [ngModel]="securityName$ | async" [validationError]="" (ngModelChange)="onSecurityNameChange($event)">
+      </dtcc-textbox>
+    </div>
+
+    <div class="col-6">
+      <dtcc-textbox label="Issuer Name" name="issuerName" class="d-block tb-m" validateOnChange=true
+        [ngModel]="issuerName$ | async" [validationError]="" (ngModelChange)="onIssuerNameChange($event)">
+      </dtcc-textbox>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 10px">
+    <div class="col-6">
+      <dtcc-textbox label="Ticker" name="ticker" class="d-block tb-m" validateOnChange=true [ngModel]="ticker$ | async"
+        (ngModelChange)="onTickerChange($event)">
+      </dtcc-textbox>
+    </div>
+  </div>
+
+  <div class="row">
+    <ion-form style="margin-left: 15px; margin-right: 15px;" start=true>
+      <ion-form-item>
+        <button name="search" class="dtcc-component btn btn-primary form-button" (click)="search()">
+          Search
+        </button>
+      </ion-form-item>
+      <ion-form-item>
+        <button name="reset" class="dtcc-component btn btn-secondary form-button reset-button" (click)="reset()">
+          Reset
+        </button>
+      </ion-form-item>
+    </ion-form>
+  </div>
+
+</div>
+
+<div *ngIf="hasResult$ | async">
+
+  <div class="row" style="margin-top: 30px">
+    <div class="col-12">
+      <dtcc-datagrid [style.height]="defaultGridHeight" [defaultGridHeight]="defaultGridHeight"
+        [isBasicGrid]="isBasicGrid" [gridOptions]="gridOptions" [gridConfig]="gridConfig"
+        [rowData]="(result$ | async).items" [viewColumnDefs]="columnDefs">
+      </dtcc-datagrid>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <button name="Submit" class="dtcc-component btn btn-primary form-button" [disabled]="!(canSubmit$ | async)"
+        (click)="submit()">
+        Submit
+      </button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<ion-form>
+  <ion-form-item>
+    <dtcc-select required=true class="action-text" uniqueId="action" name="action" label="Action" leftLabel="false"
+      dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="operations" validateOnChange=true
+      validateOnFocusOut=true [validationError]="operationError$ | async" [ngModel]="operation$ | async"
+      (ngModelChange)="onOperationChange($event)">
+    </dtcc-select>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-textbox required=true label="Amount" name="Amount" class="d-block amount-text" validateOnChange=true
+      validateOnFocusOut=true [validationError]="amountError$ | async" [ngModel]="amount$ | async"
+      (ngModelChange)="onAmountChange($event)">
+    </dtcc-textbox>
+  </ion-form-item>
+  <ion-form-item>
+    <button [disabled]="submitDisabled$ | async" class="dtcc-component btn btn-primary form-button submit-button"
+      (click)="submit()">
+      Submit
+    </button>
+  </ion-form-item>
+  <ion-form-item>
+    <button class="dtcc-component btn btn-secondary form-button form-button reset-button" (click)="reset()">
+      Reset
+    </button>
+  </ion-form-item>
+</ion-form>

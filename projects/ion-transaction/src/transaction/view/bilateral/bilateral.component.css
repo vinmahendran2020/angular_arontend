@@ -1,0 +1,102 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+::ng-deep a {
+  color: #0096d6;
+}
+
+::ng-deep .dtcc-component.tab-container[data-bilateral] {
+  padding-bottom: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 0 !important;
+  height: 100%;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-bilateral]
+  tabset.tab-container[data-bilateral] {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .dtcc-component.tab-container[data-bilateral] tab.tab-pane {
+  padding: 0 !important;
+  border: none !important;
+  display: none !important;
+}
+
+::ng-deep .dtcc-component.tab-container[data-bilateral] div.tab-content {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-bilateral]
+  > tabset[data-bilateral]
+  > .nav-tabs
+  .nav-item {
+  border-top: 1px solid #d7d7d7;
+  border-left: 1px solid #d7d7d7;
+  border-right: 1px solid #d7d7d7;
+  margin-right: 5px;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-bilateral]
+  > tabset[data-bilateral]
+  > .nav-tabs {
+  border-left: none !important;
+  border-bottom: 1px solid #d7d7d7 !important;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-bilateral]
+  > tabset[data-bilateral]
+  > .nav-tabs
+  .nav-item
+  .nav-link {
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid #d7d7d7;
+  border-right: none;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-bilateral]
+  > tabset[data-bilateral]
+  > .nav-tabs
+  .nav-item
+  .nav-link.active {
+  border-right: none !important;
+  border-bottom: 0 solid transparent;
+}
+
+.outlet {
+  border: 1px solid #d7d7d7;
+  border-top: none;
+  padding: 0;
+  overflow-y: hidden;
+  overflow-x: auto;
+  background-color: #ffff;
+  height: 100%;
+  /* color: #0096d6 !important; */
+}

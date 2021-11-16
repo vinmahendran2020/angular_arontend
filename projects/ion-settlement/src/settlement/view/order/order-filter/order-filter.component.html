@@ -1,0 +1,45 @@
+<ion-form>
+  <ion-form-item>
+    <dtcc-textbox label="Deliverer ID" name="Deliverer ID" class="d-block form-input" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="delivererId$ | async" (ngModelChange)="onDelivererIdChange($event)">
+    </dtcc-textbox>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-textbox label="Receiver ID" name="Receiver ID" class="d-block form-input" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="receiverId$ | async" (ngModelChange)="onReceiverIdChange($event)">
+    </dtcc-textbox>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-textbox label="CUSIP Name" name="CUSIP Name" class="d-block form-input" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="cusipName$ | async" (ngModelChange)="onCusipNameChange($event)">
+    </dtcc-textbox>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-textbox label="CUSIP" name="CUSIP" class="d-block form-input" validateOnChange=true validateOnFocusOut=true
+      [ngModel]="cusipId$ | async" (ngModelChange)="onCusipIdChange($event)">
+    </dtcc-textbox>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-select clearable="false" class="d-block form-input" label="Prefunded" leftLabel="false"
+      dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="prefundeds" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="prefunded$ | async" (ngModelChange)="onPrefundedChange($event)">
+    </dtcc-select>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-select clearable="false" class="d-block form-input" label="Settlement Status" leftLabel="false"
+      dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="settlementStatuses" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="settlementStatus$ | async" (ngModelChange)="onSettlementStatusChange($event)">
+    </dtcc-select>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-select clearable="false" class="d-block form-input" label="Pending Reason" leftLabel="false"
+      dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="pendingReasons" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="pendingReason$ | async" (ngModelChange)="onPendingReasonChange($event)">
+    </dtcc-select>
+  </ion-form-item>
+  <ion-form-item>
+    <button class="dtcc-component btn btn-secondary form-button" (click)="filter()">
+      Filter
+    </button>
+  </ion-form-item>
+</ion-form>

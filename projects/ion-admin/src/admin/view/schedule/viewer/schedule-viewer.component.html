@@ -1,0 +1,47 @@
+<div class="header">
+  <div class="title">
+    {{title}}
+  </div>
+  <div class="toggle custom-control custom-switch">
+    <input type="checkbox" [checked]="checked" class="custom-control-input" id="active-switch"
+      (change)="toggle.emit($event.target.checked)">
+    <label class="custom-control-label" for="active-switch"></label>
+  </div>
+</div>
+<div *ngIf="message" class="message">
+  <ion-success-message showClose="true" [message]="message" (close)="clear.emit()"></ion-success-message>
+</div>
+<div class="description" [class.disabled]="disabled">
+  Please find the information for the current schedule below.
+</div>
+<div class="schedule">
+  <ul class="list left" [class.disabled]="disabled">
+    <li>
+      Start Time
+    </li>
+    <li>
+      End Time
+    </li>
+    <li>
+      Timezone
+    </li>
+    <li>
+      Recurrence
+    </li>
+  </ul>
+  <ul class="list right" [class.disabled]="disabled">
+    <li>
+      {{schedule?.startTime}}
+    </li>
+    <li>
+      {{schedule?.endTime}}
+    </li>
+    <li>
+      {{timezone}}
+    </li>
+    <li>
+      {{recurrenceText}}
+    </li>
+  </ul>
+</div>
+<button [disabled]="disabled" class="edit dtcc-component btn btn-primary small" (click)="edit.emit(true)">Edit</button>

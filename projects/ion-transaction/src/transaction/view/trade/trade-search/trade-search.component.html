@@ -1,0 +1,54 @@
+<div class="col-12 info">The Market Trade Generator submits simulated, randomized market trades to the netting service.
+</div>
+
+<form class="search-form" (keydown.enter)="enter()">
+  <div class="col-2">
+    <dtcc-select clearable="false" required=true class="count-kind-text" uniqueId="Count" name="Count"
+      label="Trade Count" leftLabel="false" dataProviderField="label" dataProviderFieldValue="id"
+      [dataProvider]="countProvider$ | async" validateOnChange=true validateOnFocusOut=true [ngModel]="count$ | async"
+      (ngModelChange)="onTradeCountChange($event)">
+    </dtcc-select>
+  </div>
+
+  <div class="col-2">
+    <dtcc-multiselect clearable="false" required=true class="participant-kind-text" uniqueId="ParticipantId"
+      name="ParticipantId" label="Participant ID" leftLabel="false" dataProviderField="label"
+      dataProviderFieldValue="id" [dataProvider]="participantsProvider$ | async" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="participantId$ | async" (ngModelChange)="onParticipantIdChange($event)"
+      [maxOptionsToDisplay]="1">
+    </dtcc-multiselect>
+  </div>
+
+  <div class="col-2">
+    <dtcc-multiselect clearable="false" required=true class="cusip-kind-text" uniqueId="CUSIP" name="CUSIP"
+      label="CUSIP" leftLabel="false" dataProviderField="label" dataProviderFieldValue="id"
+      [dataProvider]="securitiesProvider$ | async" validateOnChange=true validateOnFocusOut=true
+      [ngModel]="cusip$ | async" (ngModelChange)="onCusipChange($event)" [maxOptionsToDisplay]="1">
+    </dtcc-multiselect>
+  </div>
+  <div class="col-2">
+    <dtcc-multiselect clearable="false" required=true class="direction-kind-text" uniqueId="Direction" name="Direction"
+      label="Direction" leftLabel="false" dataProviderField="label" dataProviderFieldValue="id"
+      [dataProvider]="directionProvider$ | async" validateOnChange=true validateOnFocusOut=true
+      [ngModel]="direction$ | async" (ngModelChange)="onDirectionChange($event)" [maxOptionsToDisplay]="3">
+    </dtcc-multiselect>
+  </div>
+  <div class="col-2">
+    <dtcc-multiselect clearable="false" required=true class="settlement-type-kind-text" uniqueId="SettlementType"
+      name="SettlementType" label="Settlement Type" leftLabel="false" dataProviderField="label"
+      dataProviderFieldValue="id" [dataProvider]="settlementTypeProvider$ | async" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="settlementType$ | async" (ngModelChange)="onSettlementTypeChange($event)"
+      [maxOptionsToDisplay]="1">
+    </dtcc-multiselect>
+  </div>
+
+  <div class="col-1">
+    <button type="button" [disabled]="searchDisabled$ | async" class="dtcc-component btn btn-primary form-button"
+      (click)="search()">Generate Trades</button>
+  </div>
+  <div class="col-1">
+    <button type="button" class="dtcc-component btn btn-secondary form-button reset-button"
+      (click)="reset()">Reset</button>
+  </div>
+
+</form>

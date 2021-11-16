@@ -1,0 +1,469 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ion-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ion-app",
+      "sourceRoot": "projects/ion-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ion-app",
+            "index": "projects/ion-app/src/index.html",
+            "main": "projects/ion-app/src/main.ts",
+            "polyfills": "projects/ion-app/src/polyfills.ts",
+            "tsConfig": "projects/ion-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ion-app/src/favicon.ico",
+              "projects/ion-app/src/assets"
+            ],
+            "styles": ["projects/ion-app/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ion-app/src/environments/environment.ts",
+                  "with": "projects/ion-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ion-app:build",
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ion-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ion-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-app/src/test.ts",
+            "polyfills": "projects/ion-app/src/polyfills.ts",
+            "tsConfig": "projects/ion-app/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-app/karma.conf.js",
+            "assets": [
+              "projects/ion-app/src/favicon.ico",
+              "projects/ion-app/src/assets"
+            ],
+            "styles": ["projects/ion-app/src/styles.css"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-app/tsconfig.app.json",
+              "projects/ion-app/tsconfig.spec.json",
+              "projects/ion-app/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ion-app/e2e/protractor.conf.js",
+            "devServerTarget": "ion-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ion-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "ion-shared": {
+      "projectType": "library",
+      "root": "projects/ion-shared",
+      "sourceRoot": "projects/ion-shared/src",
+      "prefix": "ion",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ion-shared/tsconfig.lib.json",
+            "project": "projects/ion-shared/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ion-shared/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-shared/src/test.ts",
+            "tsConfig": "projects/ion-shared/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-shared/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-shared/tsconfig.lib.json",
+              "projects/ion-shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ion-core": {
+      "projectType": "library",
+      "root": "projects/ion-core",
+      "sourceRoot": "projects/ion-core/src",
+      "prefix": "ion",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ion-core/tsconfig.lib.json",
+            "project": "projects/ion-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ion-core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-core/src/test.ts",
+            "tsConfig": "projects/ion-core/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-core/tsconfig.lib.json",
+              "projects/ion-core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ion-auth": {
+      "projectType": "library",
+      "root": "projects/ion-auth",
+      "sourceRoot": "projects/ion-auth/src",
+      "prefix": "ion",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ion-auth/tsconfig.lib.json",
+            "project": "projects/ion-auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ion-auth/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-auth/src/test.ts",
+            "tsConfig": "projects/ion-auth/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-auth/tsconfig.lib.json",
+              "projects/ion-auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ion-shell": {
+      "projectType": "library",
+      "root": "projects/ion-shell",
+      "sourceRoot": "projects/ion-shell/src",
+      "prefix": "ion",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ion-shell/tsconfig.lib.json",
+            "project": "projects/ion-shell/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ion-shell/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-shell/src/test.ts",
+            "tsConfig": "projects/ion-shell/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-shell/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-shell/tsconfig.lib.json",
+              "projects/ion-shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ion-common": {
+      "projectType": "library",
+      "root": "projects/ion-common",
+      "sourceRoot": "projects/ion-common/src",
+      "prefix": "ion",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ion-common/tsconfig.lib.json",
+            "project": "projects/ion-common/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ion-common/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-common/src/test.ts",
+            "tsConfig": "projects/ion-common/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-common/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-common/tsconfig.lib.json",
+              "projects/ion-common/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ion-dashboard": {
+      "projectType": "library",
+      "root": "projects/ion-dashboard",
+      "sourceRoot": "projects/ion-dashboard/src",
+      "prefix": "ion",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ion-dashboard/tsconfig.lib.json",
+            "project": "projects/ion-dashboard/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ion-dashboard/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-dashboard/src/test.ts",
+            "tsConfig": "projects/ion-dashboard/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-dashboard/karma.conf.js",
+            "codeCoverageExclude": [
+              "projects/ion-dashboard/src/dashboard/store/reducers/cca.reducer.ts",
+              "projects/ion-dashboard/src/dashboard/store/actions/cca.actions.ts"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-dashboard/tsconfig.lib.json",
+              "projects/ion-dashboard/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ion-admin": {
+      "projectType": "library",
+      "root": "projects/ion-admin",
+      "sourceRoot": "projects/ion-admin/src",
+      "prefix": "ion",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ion-admin/tsconfig.lib.json",
+            "project": "projects/ion-admin/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ion-admin/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-admin/src/test.ts",
+            "tsConfig": "projects/ion-admin/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-admin/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-admin/tsconfig.lib.json",
+              "projects/ion-admin/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ion-transaction": {
+      "projectType": "library",
+      "root": "projects/ion-transaction",
+      "sourceRoot": "projects/ion-transaction/src",
+      "prefix": "ion",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ion-transaction/tsconfig.lib.json",
+            "project": "projects/ion-transaction/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ion-transaction/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-transaction/src/test.ts",
+            "tsConfig": "projects/ion-transaction/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-transaction/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-transaction/tsconfig.lib.json",
+              "projects/ion-transaction/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ion-settlement": {
+      "projectType": "library",
+      "root": "projects/ion-settlement",
+      "sourceRoot": "projects/ion-settlement/src",
+      "prefix": "ion",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ion-settlement/tsconfig.lib.json",
+            "project": "projects/ion-settlement/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ion-settlement/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ion-settlement/src/test.ts",
+            "tsConfig": "projects/ion-settlement/tsconfig.spec.json",
+            "karmaConfig": "projects/ion-settlement/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ion-settlement/tsconfig.lib.json",
+              "projects/ion-settlement/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ion-app",
+  "cli": {
+    "analytics": "c7af938b-4eef-428f-bba0-c6724aa874f0"
+  }
+}

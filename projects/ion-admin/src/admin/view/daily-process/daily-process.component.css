@@ -1,0 +1,225 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.bar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 30px;
+}
+
+.title {
+  font-family: 'Arial Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  color: #000000;
+}
+
+.status {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.updated {
+  font-size: 12px;
+  color: #5f6062;
+  text-align: right;
+}
+
+.icon {
+  margin-left: 12px;
+  margin-top: -4px;
+  color: #5f6062;
+}
+
+.refresh-icon {
+  cursor: pointer;
+  color: inherit;
+}
+
+.refresh-icon[disabled] {
+  pointer-events: none;
+}
+
+.content {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+::ng-deep a {
+  color: #0096d6;
+}
+
+::ng-deep .dtcc-component.tab-container[data-settlement] {
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 0;
+  height: 100%;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-settlement]
+  tabset.tab-container[data-settlement] {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .dtcc-component.tab-container[data-settlement] tab.tab-pane {
+  padding: 0;
+  border: none;
+  display: none;
+}
+
+::ng-deep .dtcc-component.tab-container[data-settlement] div.tab-content {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-settlement]
+  > tabset[data-settlement]
+  > .nav-tabs
+  .nav-item {
+  border-top: 1px solid #d7d7d7;
+  border-left: 1px solid #d7d7d7;
+  border-right: 1px solid #d7d7d7;
+  margin-right: 5px;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-settlement]
+  > tabset[data-settlement]
+  > .nav-tabs {
+  border-left: none;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-settlement]
+  > tabset[data-settlement]
+  > .nav-tabs
+  .nav-item
+  .nav-link {
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid #d7d7d7;
+  border-right: none;
+}
+
+::ng-deep
+  .dtcc-component.tab-container[data-settlement]
+  > tabset[data-settlement]
+  > .nav-tabs
+  .nav-item
+  .nav-link.active {
+  border-right: none;
+  border-bottom: 0 solid transparent;
+}
+
+::ng-deep ag-grid-angular.dtcc-component .ag-cell {
+  font-size: 12px !important;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+::ng-deep ag-grid-angular.dtcc-component .ag-header-cell {
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+::ng-deep .number {
+  text-align: right !important;
+}
+
+::ng-deep .labelRight .ag-header-cell-label {
+  justify-content: flex-end !important;
+}
+
+::ng-deep .justifyCenter {
+  justify-content: center !important;
+}
+
+::ng-deep .alignLeft {
+  text-align: left !important;
+}
+
+::ng-deep .alignCenter {
+  text-align: center !important;
+}
+
+::ng-deep .alignRight {
+  text-align: right !important;
+}
+
+.outlet {
+  border: 1px solid #d7d7d7;
+  border-top: none;
+  padding: 0;
+  overflow-y: hidden;
+  overflow-x: auto;
+  background-color: #ffff;
+  height: 100%;
+  color: #0096d6 !important;
+}
+
+::ng-deep .tb-s {
+  max-width: 200px !important;
+}
+
+::ng-deep .tb-m {
+  max-width: 250px !important;
+}
+
+::ng-deep .tb-l {
+  max-width: 300px !important;
+}
+
+::ng-deep span.uif-label-text {
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+::ng-deep span.text-danger {
+  font-size: 12px;
+  color: #ce0000 !important;
+  text-align: left;
+  margin-top: 5px;
+  white-space: nowrap;
+}
+
+::ng-deep .form-button {
+  width: 119px;
+  max-width: 119px !important;
+  height: 30px !important;
+  line-height: 10px;
+  margin-top: 26px;
+  font-size: 12px;
+}
+
+::ng-deep .reset-button {
+  color: #ffff;
+  margin-left: 10px;
+}

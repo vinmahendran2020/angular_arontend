@@ -1,0 +1,92 @@
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 70px;
+}
+
+.table-cell .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: -0.19px;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.table-cell {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0.5em;
+  word-break: keep-all;
+}
+
+.table-cell {
+  padding: 1em 0.5rem 1rem 0.5rem;
+  color: #5f6062;
+  letter-spacing: -0.19px;
+  line-height: 26px;
+  /* font-size: 12px; */
+}
+
+.table-cell.id {
+  flex-grow: 0;
+  flex-basis: 40px;
+}
+
+.table-cell.id .text {
+  width: 100%;
+  text-align: right;
+  font-size: 10px !important;
+}
+
+.table-cell.action,
+.table-cell.cusip,
+.table-cell.quantity,
+.table-cell.cusipName,
+.table-cell.totalFreePstn,
+.table-cell.memoSegPstn,
+.table-cell.freeExcessPstn {
+  flex-grow: 0;
+  flex-basis: 200px;
+}
+
+.participant-text,
+.cusip-text,
+.quantity-text,
+.action-text {
+  width: 100%;
+}
+
+.participant-text ::ng-deep span.text-danger,
+.cusip-text ::ng-deep span.text-danger,
+.quantity-text ::ng-deep span.text-danger,
+.action-text ::ng-deep span.text-danger {
+  font-size: 10px !important;
+}
+
+.table-cell.remove {
+  flex-grow: 0;
+  flex-basis: 15px;
+}
+
+.remove-icon {
+  color: #5f6062;
+  cursor: pointer;
+  color: inherit;
+}
+
+.icon-disabled {
+  border: none;
+  pointer-events: none;
+  cursor: not-allowed;
+  color: #b7b7b7;
+}
+
+:host ::ng-deep span.ng-clear-wrapper {
+  display: none !important;
+}

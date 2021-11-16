@@ -1,0 +1,39 @@
+<div class="summary">
+  <div class="title">Positions Summary</div>
+  <div class="reports">
+    <ion-report-card class="col-4" title="Total Free Position" [amount]="summary.netAdditions + summary.minimumAmount"></ion-report-card>
+    <ion-report-card class="col-4" title="Memo Segregation" [amount]="summary.memoSegregation"></ion-report-card>
+    <ion-report-card class="col-4" title="Total Free Excess" [amount]="summary.totalFreeExcess"></ion-report-card>
+  </div>
+  <div class="panel-wrapper">
+    <div class="panel">
+      <div class="pl-3 pt-1 pb-1 panel-header">
+        <span class="panel-title">All Positions Details</span><span class="panel-info"> for {{summary.security}} | {{summary.ticker}} | {{summary.cusip}}</span>
+      </div>
+      <div class="panel-content row-style">
+        <div class="pl-1 pt-1 pb-1 col-2" style="margin-left: 15px;">Net Additions (NA)</div>
+        <div class="pl-1 pt-1 pb-1 col-2" style="text-align: 'right';">{{summary.netAdditions | number}}</div>
+      </div>
+      <div class="panel-content row-style">
+        <div class="pl-1 pt-1 pb-1 col-2" style="margin-left: 15px;">Minimum Amount (MA)</div>
+        <div class="pl-1 pt-1 pb-1 col-2" style="text-align: 'right';">{{summary.minimumAmount | number}}</div>
+      </div>
+      <div class="panel-content row-style">
+        <div class="pl-1 pt-1 pb-1 col-2" style="margin-left: 15px;">Memo Segregation</div>
+        <div class="pl-1 pt-1 pb-1 col-2" style="text-align: 'right';">{{summary.memoSegregation | number}}</div>
+      </div>
+      <div class="panel-content row-style-bold">
+        <div class="pl-1 pt-1 pb-1 col-2" style="margin-left: 15px;">Total Free Excess</div>
+        <div class="pl-1 pt-1 pb-1 col-2" style="text-align: 'right';">{{summary.totalFreeExcess | number}}</div>
+      </div>
+      <div class="panel-content row-style">
+        <div class="pl-1 pt-1 pb-1 col-2" style="margin-left: 15px;">Pledged</div>
+        <div class="pl-1 pt-1 pb-1 col-2" style="text-align: 'right';">{{summary.pledged | number}}</div>
+      </div>
+      <div class="panel-footer">
+        <div class="pl-1 pt-1 pb-1 col-2" style="margin-left: 15px;">Total Positions</div>
+        <div class="pl-1 pt-1 pb-1 col-2" style="text-align: 'right';">{{summary.totalPositions | number}}</div>
+      </div>
+    </div>
+  </div>
+</div>

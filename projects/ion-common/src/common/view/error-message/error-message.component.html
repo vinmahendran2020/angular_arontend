@@ -1,0 +1,13 @@
+<div class="header">
+  <div class="left">
+    <div class="icon">
+      <i aria-hidden="true" class="fa fa-exclamation-circle mani-icon"></i>
+    </div>
+    <div class="message">
+      {{message}}
+    </div>
+  </div>
+  <div *ngIf="showClose" class="right">
+    <div class="close" (click)="closeMessage()"><i aria-hidden="true" class="fa fa-times"></i></div>
+  </div>
+</div>

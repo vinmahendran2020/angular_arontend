@@ -1,0 +1,10 @@
+<form class="search-form" (keydown.enter)="enter()">
+  <div class="form-container">
+    <div class="form-item">
+      <dtcc-textbox label="Participant ID" required=true name="ParticipantId" class="d-block participant-text"
+        validateOnChange=true validateOnFocusOut=true [validationError]="participantIdError$ | async"
+        [ngModel]="participantId$ | async" (ngModelChange)="onParticipantIdChange($event)">
+      </dtcc-textbox>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,23 @@
+<div class="root" [popover]="menu" placement="right top" container="body" triggers="click" [outsideClick]="true"
+  #pop="bs-popover" containerClass="pending-popover-container">
+  <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+</div>
+
+<ng-template #menu>
+  <div (click)="pop.hide()">
+    <ul class="pending-popover-list">
+      <li>
+        {{cusip}}
+      </li>
+      <li>
+        Close
+      </li>
+      <li>
+        Hold
+      </li>
+      <li>
+        Hold with Blockage
+      </li>
+    </ul>
+  </div>
+</ng-template>

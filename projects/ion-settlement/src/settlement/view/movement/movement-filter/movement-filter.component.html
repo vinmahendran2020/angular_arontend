@@ -1,0 +1,19 @@
+<ion-form>
+  <ion-form-item>
+    <dtcc-select clearable="false" class="d-block form-input" label="Action"
+    leftLabel="false" dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="actions"
+    validateOnChange=true validateOnFocusOut=true [ngModel]="action$ | async"
+    (ngModelChange)="onActionChange($event)">
+  </dtcc-select>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-datepicker label="Date" name="Date" class="d-block form-input"
+      [ngModel]="date$ | async" validateOnChange=true (ngModelChange)="onDateChange($event.date)">
+    </dtcc-datepicker>
+  </ion-form-item>
+  <ion-form-item>
+    <button class="dtcc-component btn btn-secondary form-button" (click)="filter()">
+      Filter
+    </button>
+  </ion-form-item>
+</ion-form>

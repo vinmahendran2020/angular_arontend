@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="status">
+    <ion-schedule-status type="start" title="Start of Day Process Trigger"
+      description="The Start of Day (SOD) Process Trigger initiates the beginning of a settlement day. Ion makes MA to NA account moves based on the start of day bulk move indicator, runs the netting process to update pricing for all obligations and CCAs, and attempts settlement of all activity in priority order."
+      message="The Start of Day Processes are currently in progress." [message]="inProgressMessage$ | async" [progress]="progress$ | async" [settlementDate]="settlementDate$ | async"
+      (settlementDateChange)="onSettlementDateChange($event)" (run)="onRun()"></ion-schedule-status>
+  </div>
+  <div class="divider"></div>
+  <div class="scheduler">
+    <ion-daily-schedule-viewer title="Automated Start of Day Process Scheduler" [message]="submitMessage$ | async"
+      [schedule]="schedule$ | async" (edit)="openEdit()" (toggle)="onToggle($event)" (clear)="onMessageClear()">
+    </ion-daily-schedule-viewer>
+  </div>
+</div>
+<dtcc-modal-base [visible]="edit$ | async" class="medium-dialog" [modalOptions]="modalOptions" (close)="closeEdit()"
+  (visibleChange)="!$event && closeEdit()">
+  <span header>Edit Schedule</span>
+  <div content>
+    <ion-daily-schedule-editor *ngIf="edit$ | async" [schedule]="schedule$ | async" (submit)="submitEdit($event)">
+    </ion-daily-schedule-editor>
+  </div>
+</dtcc-modal-base>

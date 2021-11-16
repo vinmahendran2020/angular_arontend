@@ -1,0 +1,64 @@
+<div class="dialog">
+  <div class="side-panel-title">
+    <div class="col-12">
+      <div class="d-block header">
+        CCA Netted Obligations Details <span class="info">for Participant ID {{(summary$ |
+          async)?.participantId}}</span>
+      </div>
+      <div class="d-block details">
+        CCA ID: {{(adjustment$ | async)?.ccaId}} | Settlement Date: {{(adjustment$ | async)?.settlementDate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 20px; margin-left: 20px">
+    <div class="col-3">
+      <dtcc-textbox icon="fa-search" label="CUSIP" name="CUSIP" class="d-block" validateOnChange=true
+        [ngModel]="cusip$ | async" [validationError]="" (ngModelChange)="onCusipChange($event)">
+      </dtcc-textbox>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 30px">
+    <div class="col-12">
+      <div class="panel-header">
+        <b>CCA Debits</b>
+      </div>
+      <dtcc-datagrid [isBasicGrid]="isBasicGrid" [gridOptions]="gridOptions" [gridConfig]="gridConfig"
+        [style.height]="defaultGridHeight" [defaultGridHeight]="defaultGridHeight" [viewColumnDefs]="columnDefs"
+        [rowData]="ccaDebits$ | async">
+      </dtcc-datagrid>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 20px; margin-left: 20px">
+    <div class="col-2">
+      <span class="label">Total Debit CCA Amount</span>
+    </div>
+    <div class="col-2">
+      <span class="total">{{(totalCCADebits$ | async) | currency}}</span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 30px">
+    <div class="col-12">
+      <div class="panel-header">
+        <b>CCA Credits</b>
+      </div>
+      <dtcc-datagrid [isBasicGrid]="isBasicGrid" [gridOptions]="gridOptions" [gridConfig]="gridConfig"
+        [style.height]="defaultGridHeight" [defaultGridHeight]="defaultGridHeight" [viewColumnDefs]="columnDefs"
+        [rowData]="ccaCredits$ | async">
+      </dtcc-datagrid>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 20px; margin-left: 20px">
+    <div class="col-2">
+      <span class="label">Total Credit CCA Amount</span>
+    </div>
+    <div class="col-2">
+      <span class="total">{{(totalCCACredits$ | async) | currency}}</span>
+    </div>
+  </div>
+
+</div>

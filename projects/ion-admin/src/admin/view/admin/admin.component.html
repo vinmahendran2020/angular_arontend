@@ -1,0 +1,21 @@
+<main class="main" role="main">
+  <div class="content">
+    <div class="dtcc-component tab-container" data-admin>
+      <tabset [vertical]="true" data-admin>
+        <tab class="tab-pane" heading="Daily Processes"  [active]="((active$ | async) === 'start') || ((active$ | async) === 'end')" id="daily-process/start"
+        (selectTab)="onSelect($event.id)">
+        </tab>
+        <tab class="tab-pane" heading="Netting" [active]="(active$ | async) === 'netting'" id="netting"
+          (selectTab)="onSelect($event.id)">
+        </tab>
+        <tab class="tab-pane" heading="Settlement"
+          [active]="((active$ | async) === 'security') || ((active$ | async) === 'cash')" id="settlement/security"
+          (selectTab)="onSelect($event.id)">
+        </tab>
+        <div class="outlet" [attr.data-active]="active$ | async">
+          <router-outlet></router-outlet>
+        </div>
+      </tabset>
+    </div>
+  </div>
+</main>

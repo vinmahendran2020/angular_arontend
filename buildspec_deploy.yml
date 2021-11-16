@@ -1,0 +1,34 @@
+version: 0.2
+
+env:
+  # Override environment variables on codepipeline build project configuration
+  variables:
+    ECR_REGISTRY: ""
+    ECR_REPOSITORY_NAME: "ion-dev-frontend"
+    AWS_CLUSTER_NAME: "dev-frontend-CLUSTER"
+    IMAGE_TAG: "latest"
+    NAMESPACE: "dev-frontend"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+    - echo installing kubectl
+    - curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09-18/bin/linux/amd64/kubectl
+    - chmod +x ./kubectl
+    - mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+    - echo installing helm
+    - curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+    - helm version
+  build:
+    commands:
+    - printf '{"registry":"%s","repository":"%s","tag":"%s","release":"%s","cluster":"%s","region":"%s","namespace":"%s"}' $ECR_REGISTRY $ECR_REPOSITORY_NAME $IMAGE_TAG "frontend" $AWS_CLUSTER_NAME $AWS_REGION $NAMESPACE > build.json
+    - chmod +x ./scripts/deploy.sh
+    - ./scripts/deploy.sh
+artifacts:
+  files:
+    - build.json
+    - k8s/**/*
+    - scripts/*
+    - buildspec_deploy.yml
+    - buildspec_verify.yml

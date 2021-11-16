@@ -1,0 +1,9 @@
+<dtcc-modal-base [visible]="idle$ | async" class="medium-dialog" [modalOptions]="modalOptions" (close)="close()"
+  (visibleChange)="!$event && close()">
+  <span header>Session Expired</span>
+  <div content>
+    <p>The session is expired.</p>
+    <p>Please re-login to continue using the application.</p>
+    <p>You will be redirected to login screen in {{countdown$ | async}} second(s)</p>
+  </div>
+</dtcc-modal-base>

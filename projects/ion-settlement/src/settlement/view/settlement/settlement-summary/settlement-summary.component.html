@@ -1,0 +1,9 @@
+<div class="wrapper" [ngSwitch]="transactionType$ | async">
+  <ion-memo *ngSwitchCase="'memo'"></ion-memo>
+  <ion-obligation *ngSwitchCase="'obligation'"></ion-obligation>
+  <ion-order *ngSwitchCase="'order'"></ion-order>
+  <ion-preposition *ngSwitchCase="'preposition'"></ion-preposition>
+  <ion-movement *ngSwitchCase="'movement'"></ion-movement>
+  <ion-cash *ngSwitchCase="'cash'"></ion-cash>
+  <ion-adjustment *ngSwitchCase="'adjustment'"></ion-adjustment>
+</div>

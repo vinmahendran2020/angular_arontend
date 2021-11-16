@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+::ng-deep dtcc-textbox.collateralId input {
+  background: none !important;
+  border: none !important;
+  padding-left: 0px !important;
+}

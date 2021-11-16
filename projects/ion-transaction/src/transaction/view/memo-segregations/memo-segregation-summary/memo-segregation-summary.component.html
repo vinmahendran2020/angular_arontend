@@ -1,0 +1,46 @@
+<div class="table-cell id">
+  <span class="text">
+    {{id}}
+  </span>
+</div>
+<div class="table-cell action">
+  <dtcc-select class="action-text" uniqueId="action" dataProviderField="label" dataProviderFieldValue="id"
+    [dataProvider]="action" validateOnChange=true validateOnFocusOut=true [validationError]="actionError$ | async"
+    [ngModel]="action$ | async" (ngModelChange)="onActionChange($event)">
+  </dtcc-select>
+</div>
+<div class="table-cell cusip">
+  <dtcc-textbox icon="fa-search" class="d-block cusip-text" [ngModel]="cusip$ | async"
+    validateOnChange=true [validationError]="cusipError$ | async" (iconClick)="openCusipDialog()"
+    (ngModelChange)="onCusipChange($event)">
+  </dtcc-textbox>
+</div>
+<div class="table-cell quantity">
+  <dtcc-textbox class="d-block quantity-text" validateOnChange=true validateOnFocusOut=true
+    [ngModel]="quantity$ | async" [validationError]="quantityError$ | async" (ngModelChange)="onQuantityChange($event)">
+  </dtcc-textbox>
+</div>
+<div class="table-cell cusipName">
+  {{cusipName$ | async}}
+</div>
+<div class="table-cell totalFreePstn">
+  {{totalFreePstn$ | async}}
+</div>
+<div class="table-cell memoSegPstn">
+  {{memoSegPstn$ | async}}
+</div>
+<div class="table-cell freeExcessPstn">
+  {{freeExcessPstn$ | async}}
+</div>
+<div class="table-cell remove" [class.icon-disabled]="!(deletable$ | async)">
+  <div class="remove-icon"><a (click)="remove()" title="Delete Row"><i class="fa fa-trash" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<dtcc-modal-base [visible]="cusipSearch$ | async" class="medium-dialog" [modalOptions]="modalOptions"
+  (close)="closeCusipDialog()" (visibleChange)="!$event && closeCusipDialog()">
+  <span header>CUSIP Search</span>
+  <div content>
+    <ion-cusip-dialog *ngIf="cusipSearch$ | async" (trigger)="onCusipSelect($event)"></ion-cusip-dialog>
+  </div>
+</dtcc-modal-base>

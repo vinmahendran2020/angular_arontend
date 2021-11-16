@@ -1,0 +1,5 @@
+<div class="wrapper">
+  <ion-risk-management-search></ion-risk-management-search>
+  <div class="divider"></div>
+  <ion-risk-management-summary *ngIf="summary$ | async" [summary]="summary$ | async"></ion-risk-management-summary>
+</div>

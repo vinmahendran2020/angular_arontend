@@ -1,0 +1,22 @@
+<div class="root" [popover]="menu" placement="right top" container="body" triggers="click" [outsideClick]="false"
+  #pop="bs-popover" containerClass="comment-popover-container">
+  <a><i class="fa fa-commenting" aria-hidden="true"></i></a>
+</div>
+
+<ng-template #menu>
+  <div class="comment-container">
+    <div class="comment-header">
+      <div class="comment-title">
+        Comment
+      </div>
+      <div class="comment-close" (click)="pop.hide()">
+        <a><i class="fa fa-times" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="comment-content">
+      <span class="comment-text">
+        {{comment}}
+      </span>
+    </div>
+  </div>
+</ng-template>

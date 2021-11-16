@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://ion.dev.aws.devx.systems",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

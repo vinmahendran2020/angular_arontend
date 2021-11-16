@@ -1,0 +1,15 @@
+:host {
+  height: 100%;
+  display: block;
+}
+
+.wrapper {
+  height: 100%;
+  padding: 20px 0px;
+  overflow-y: auto;
+}
+
+.divider {
+  margin-top: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}

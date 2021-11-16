@@ -1,0 +1,20 @@
+<div class="bar">
+  <div class="info">
+    <div class="title">{{title}}</div>
+    <div class="status">
+      <div class="updated">Last Updated on {{lastUpdated$ | async | date:'MM/dd/yyyy \'at\' hh:mm:ss a'}}</div>
+      <div class="icon"><a class="refresh-icon" (click)="refresh()"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="success" *ngIf="success$ | async">
+    <dtcc-messagebox type="success" icon="fa-check-circle" title="Success" (close)="closeSuccess()">
+      <p *ngFor="let message of (success$ | async).split('\n')">{{message}}</p>
+    </dtcc-messagebox>
+  </div>
+  <div class="error" *ngIf="error$ | async">
+    <dtcc-messagebox type="danger" title="Error" (close)="closeError()">
+      <p *ngFor="let error of (error$ | async).split('\n')">{{error}}</p>
+    </dtcc-messagebox>
+  </div>
+</div>

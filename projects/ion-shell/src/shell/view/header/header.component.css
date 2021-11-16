@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-right: 30px;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #191c23;
+  line-height: 1em;
+  margin-top: 1em;
+}
+
+.company-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.company-logo h3 {
+  font-size: 1em;
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.company-logo-text a {
+  color: #0081c6;
+  text-decoration: underline;
+}
+
+.company-logo-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: baseline;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}

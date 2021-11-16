@@ -1,0 +1,11 @@
+<ng-container *ngIf="isPending; then link; else plain"></ng-container>
+
+<ng-template #link>
+  <a (click)="onClick($event)" href="#">{{ params.value }}</a>
+</ng-template>
+
+<ng-template #plain>
+  <span>
+    {{ params.value }}
+  </span>
+</ng-template>

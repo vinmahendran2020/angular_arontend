@@ -1,0 +1,47 @@
+<div class="title">
+  Please edit the schedule information as necessary.
+</div>
+<div class="run-time">
+  Run Time
+</div>
+<div class="description">
+  The recurring schedule will run every valid business day (excluding weekends and market holidays) during trading
+  hours.
+</div>
+<div class="time-list">
+  <dtcc-select class="start-time" uniqueId="startTime" name="startTime" label="Start Time" leftLabel="false"
+    dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="timeslots" [(ngModel)]="startTime">
+  </dtcc-select>
+  <dtcc-select class="end-time" uniqueId="endTime" name="endTime" label="End Time" leftLabel="false"
+    dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="timeslots" [(ngModel)]="endTime">
+  </dtcc-select>
+  <dtcc-select class="timezone" uniqueId="timezone" name="timezone" label="Timezone" leftLabel="false"
+    dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="timezones" [(ngModel)]="timezone">
+  </dtcc-select>
+</div>
+<div class="divider"></div>
+<div class="recurrence">
+  Recurrence
+</div>
+<div class="triggers">
+  <div>
+    <dtcc-radiobutton uniqueId="triggers" required="true" name="triggers" dataProviderField="label"
+      dataProviderFieldValue="id" [dataProvider]="triggers" class="d-block" [(ngModel)]="recurrence">
+    </dtcc-radiobutton>
+  </div>
+  <div class="hour-minites">
+    <div class="textbox">
+      <dtcc-textbox [(ngModel)]="hours"></dtcc-textbox>
+    </div>
+    <div class="label">
+      hours and
+    </div>
+    <div class="textbox">
+      <dtcc-textbox [(ngModel)]="minutes"></dtcc-textbox>
+    </div>
+    <div class="label">
+      minutes.
+    </div>
+  </div>
+</div>
+<button class="submit dtcc-component btn btn-primary small" (click)="onSubmit()">Submit</button>

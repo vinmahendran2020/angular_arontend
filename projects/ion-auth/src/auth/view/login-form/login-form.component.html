@@ -1,0 +1,25 @@
+<form (keydown.enter)="onLogin()">
+  <div class="login-title">
+    Login to your account
+  </div>
+  <dtcc-textbox label="Username" validateOnChange=true [(ngModel)]="username" name="Username" class="d-block username"
+    [isDisabled]="isAuthenticating$ | async">
+  </dtcc-textbox>
+  <dtcc-textbox type="password" label="Password" validateOnChange=true [(ngModel)]="password" name="Password"
+    class="d-block password" [isDisabled]="isAuthenticating$ | async">
+  </dtcc-textbox>
+  <button class="login-button dtcc-component btn btn-primary medium" (click)="onLogin()"
+    [disabled]="isAuthenticating$ | async">Login</button>
+  <div class="forgot">
+    <p class="text">
+      Forgot username / password? <a class="link">
+        Reset Password
+      </a>
+    </p>
+    <p class="text">
+      Don’t have an account? <a class="link">
+        Sign Up
+      </a>
+    </p>
+  </div>
+</form>

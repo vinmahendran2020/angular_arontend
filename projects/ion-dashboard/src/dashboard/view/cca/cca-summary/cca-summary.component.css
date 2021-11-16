@@ -1,0 +1,22 @@
+.summary {
+  margin-top: 20px;
+}
+
+.title {
+  font-family: 'Arial Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  color: #000000;
+  margin-left: 30px;
+}
+
+.panel-info {
+  font-family: 'Arial Narrow', sans-serif;
+  line-height: 30px;
+  font-size: 26px;
+  color: #000000;
+}
+
+::ng-deep div.right.slideout-content-container.open {
+  top: 0px !important;
+}

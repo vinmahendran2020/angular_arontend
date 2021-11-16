@@ -1,0 +1,9 @@
+<dtcc-header #header [environment]="environment" [applicationName]="applicationName" [userName]="userName | async"
+  [hideLogout]="hideLogout" [dropdown1DataProvider]="dropdownProvider"
+  [applicationNavigationMenuDataProvider]="navigationProvider" [utilityNavigationMenuDataProvider]="utilityProvider" (dropdown1Change)="onParticipantChange($event)">
+  <span user-options class="user-options">
+    <button><i class="notification-icon fa fa-bell ml-2"></i></button>
+    <button><i class="help-icon fa fa-question-circle ml-2"></i></button>
+    <button><i class="signout-icon fa fa-sign-out ml-2" (click)="logout()"></i></button>
+  </span>
+</dtcc-header>

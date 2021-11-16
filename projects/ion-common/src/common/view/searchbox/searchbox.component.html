@@ -1,0 +1,65 @@
+<div class="uif-form-group" [attr.data-id]="generateId()">
+	<dtcc-form-label
+		*ngIf="label"
+		[required]="required"
+		class="mr-2"
+		[toolTip]="toolTip"
+		[tooltipPlacement]="tooltipPlacement"
+	>
+		{{ label }}
+	</dtcc-form-label>
+	<input
+		[attr.id]="generateId('input')"
+		[name]="name"
+		[disabled]="isDisabled"
+		type="text"
+		[(ngModel)]="value"
+		(ngModelChange)="pushChanges(value, validateOnChange)"
+		(focusout)="pushChanges(value, validateOnFocusout)"
+		(change)="pushChanges(value, validateOnChange)"
+		(keyup)="pushChanges(value, validateOnChange)"
+		[class]="getInputClassName()"
+		[class.border-danger]="
+			((errorType && !isDisabled) || validationError?.trim().length > 0) &&
+			inputCtrl?.dirty
+		"
+		#formInput
+		[placeholder]="placeholder"
+		[required]="required"
+		[maxlength]="maxLength"
+	/>
+
+	<div class="pull-right">
+		<i
+			[style.pointer-events]="isDisabled ? 'none' : 'all'"
+			style="cursor: pointer;"
+			[class]="'fa fa-search search-icon' + (isDisabled ? ' disabled' : '')"
+			aria-hidden="true"
+			(click)="onIconClick()"
+		></i>
+	</div>
+
+	<span class="text-danger d-block" *ngIf="inputCtrl?.dirty">
+		<ng-container [ngSwitch]="errorType">
+			<ng-container *ngSwitchCase="'required'">{{
+				requiredError ? requiredError : label + ' is required'
+			}}</ng-container>
+			<ng-container *ngSwitchCase="'minLength'">{{
+				minLengthError
+					? minLengthError
+					: 'Minimum ' + minLength + ' characters required'
+			}}</ng-container>
+			<ng-container *ngSwitchCase="'maxLength'">{{
+				maxLengthError
+					? maxLengthError
+					: 'Maximum ' + maxLength + ' characters allowed'
+			}}</ng-container>
+			<ng-container *ngSwitchCase="'pattern'">{{
+				patternError ? patternError : 'Invalid ' + label
+			}}</ng-container>
+		</ng-container>
+	</span>
+	<span class="text-danger d-block" *ngIf="validationError && inputCtrl?.dirty">
+		{{ validationError }}
+	</span>
+</div>

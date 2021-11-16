@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #414243;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.wrapper {
+  background-color: #ffffff;
+  overflow-y: hidden;
+  width: 870px;
+  /* height: 599px; */
+}

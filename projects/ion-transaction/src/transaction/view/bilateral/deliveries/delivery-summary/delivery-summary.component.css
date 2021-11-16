@@ -1,0 +1,87 @@
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 70px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.table-cell .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: -0.19px;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.table-cell {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0.5em;
+  word-break: keep-all;
+}
+
+.table-cell {
+  padding: 1em 0.5rem 1rem 0.5rem;
+  color: #5f6062;
+  letter-spacing: -0.19px;
+  line-height: 26px;
+  /* font-size: 12px; */
+}
+
+.table-cell.operation {
+  flex-grow: 0;
+  flex-basis: 200px;
+}
+
+.operation-text {
+  width: 100%;
+}
+
+.table-cell.delivererId,
+.table-cell.receiverId,
+.table-cell.cusip,
+.table-cell.quantity,
+.table-cell.amount,
+.table-cell.settlement {
+  flex-grow: 0;
+  flex-basis: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.participant-text,
+.cusip-text,
+.quantity-text,
+.amount-text,
+.settlement-text {
+  width: 100%;
+}
+
+.table-cell.value,
+.table-cell.prefunded {
+  flex-grow: 0;
+  flex-basis: 100px;
+}
+
+.table-cell.comment {
+  flex-grow: 0;
+  flex-basis: 70px;
+  font-size: 14px;
+}
+
+.comment-icon {
+  margin-left: 20px;
+}
+
+.comment-icon {
+  color: #5f6062;
+  cursor: pointer;
+  color: inherit;
+}

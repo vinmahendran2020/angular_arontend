@@ -1,0 +1,33 @@
+<div class="table-cell operation">
+  <dtcc-select clearable="false" class="operation-text" leftLabel="false" dataProviderField="label" dataProviderFieldValue="id"
+    [dataProvider]="operations$ | async" validateOnChange=true validateOnFocusOut=true [ngModel]="operation$ | async"
+    (ngModelChange)="onOperationChange($event)">
+  </dtcc-select>
+</div>
+<div class="table-cell delivererId">
+  {{deliverer$ | async}}
+</div>
+<div class="table-cell receiverId">
+  {{receiver$ | async}}
+</div>
+<div class="table-cell cusip">
+  {{cusip$ | async}}
+</div>
+<div class="table-cell quantity">
+  {{quantity$ | async}}
+</div>
+<div class="table-cell amount">
+  {{amount$ | async}}
+</div>
+<div class="table-cell value">
+  {{value$ | async}}
+</div>
+<div class="table-cell prefunded">
+  {{prefunded$ | async}}
+</div>
+<div class="table-cell settlement">
+  {{date$ | async | ionDate}}
+</div>
+<div class="table-cell comment">
+  <ion-delivery-comment [comment]="comment$ | async"></ion-delivery-comment>
+</div>

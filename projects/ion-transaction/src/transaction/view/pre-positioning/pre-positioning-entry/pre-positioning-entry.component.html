@@ -1,0 +1,37 @@
+<div class="table-cell id">
+  <span class="text">
+    {{id}}
+  </span>
+</div>
+<div class="table-cell action">
+  <dtcc-select class="d-block action-text" uniqueId="action" clearable=false validateOnChange=true
+    validateOnFocusOut=true dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="actions"
+    (ngModelChange)="onActionChange($event)" [ngModel]="action$ | async">
+  </dtcc-select>
+</div>
+<div class="table-cell cusip">
+  <dtcc-textbox icon="fa-search" class="d-block cusip-text" name="Cusip" validateOnChange=true validateOnFocusOut=true
+    [validationError]="cusipError$ | async" (iconClick)="openCusipDialog()" (ngModelChange)="onCusipChange($event)"
+    [ngModel]="cusip$ | async">
+  </dtcc-textbox>
+</div>
+<div class="table-cell quantity">
+  <dtcc-textbox class="d-block quantity-text" name="Quantity" validateOnChange=true validateOnFocusOut=true
+    [validationError]="quantityError$ | async" (ngModelChange)="onQuantityChange($event)" [ngModel]="quantity$ | async">
+  </dtcc-textbox>
+</div>
+<div class="table-cell cusipname">
+  {{cusipName$ | async}}
+</div>
+<div class="table-cell remove" [class.icon-disabled]="!(deletable$ | async)">
+  <div class="remove-icon"><a (click)="remove()" title="Delete Row"><i class="fa fa-trash" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<dtcc-modal-base [visible]="cusipSearch$ | async" class="medium-dialog" [modalOptions]="modalOptions"
+  (close)="closeCusipDialog()" (visibleChange)="!$event && closeCusipDialog()">
+  <span header>CUSIP Search</span>
+  <div content>
+    <ion-cusip-dialog *ngIf="cusipSearch$ | async" (trigger)="onCusipSelect($event)"></ion-cusip-dialog>
+  </div>
+</dtcc-modal-base>

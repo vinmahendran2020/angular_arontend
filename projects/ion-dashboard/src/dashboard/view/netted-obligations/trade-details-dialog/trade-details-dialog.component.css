@@ -1,0 +1,23 @@
+.dialog {
+  position: relative;
+}
+
+.side-panel-title {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333333;
+  text-align: left;
+}
+
+.details {
+  font-size: 16px;
+  color: #333333;
+  margin-top: 5px;
+}

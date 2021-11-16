@@ -1,0 +1,146 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.header {
+  position: relative;
+  background-color: rgb(247 247 247);
+}
+
+.content {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(247 247 247);
+}
+
+.absolute {
+  display: block;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+/* shared deep styles. need to revisit. */
+
+::ng-deep ag-grid-angular.dtcc-component .ag-cell {
+  font-size: 12px !important;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+::ng-deep ag-grid-angular.dtcc-component .ag-header-cell {
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+::ng-deep .number {
+  text-align: right !important;
+}
+
+::ng-deep .labelRight .ag-header-cell-label {
+  justify-content: flex-end !important;
+}
+
+::ng-deep .labelRightRPad20 .ag-header-cell-label {
+  justify-content: flex-end !important;
+  padding-right: 20px !important;
+}
+
+::ng-deep .labelRightRPad15 .ag-header-cell-label {
+  justify-content: flex-end !important;
+  padding-right: 15px !important;
+}
+
+::ng-deep .labelCenter .ag-header-cell-label {
+  justify-content: center !important;
+}
+
+::ng-deep .lPadHeader20 .ag-header-cell-label {
+  padding-left: 20px !important;
+}
+
+::ng-deep .lPadCell30 {
+  padding-left: 30px !important;
+}
+
+::ng-deep .justifyCenter {
+  justify-content: center !important;
+}
+
+::ng-deep .alignLeft {
+  text-align: left !important;
+}
+
+::ng-deep .alignCenter {
+  text-align: center !important;
+}
+
+::ng-deep .alignRight {
+  text-align: right !important;
+}
+
+::ng-deep .alignRightRPad30 {
+  text-align: right !important;
+  padding-right: 30px !important;
+}
+
+::ng-deep .tb-s {
+  max-width: 200px !important;
+}
+
+::ng-deep .tb-m {
+  max-width: 250px !important;
+}
+
+::ng-deep .tb-l {
+  max-width: 300px !important;
+}
+
+::ng-deep span.uif-label-text {
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+::ng-deep span.text-danger {
+  font-size: 12px;
+  color: #ce0000 !important;
+  text-align: left;
+  margin-top: 5px;
+  white-space: nowrap;
+}
+
+/* ::ng-deep .form-button {
+  width: 119px;
+  max-width: 119px !important;
+  height: 30px !important;
+  line-height: 10px;
+  margin-top: 26px;
+  font-size: 12px;
+} */
+
+/* ::ng-deep .reset-button {
+  color: #ffff;
+  margin-left: 10px;
+} */
+
+::ng-deep .form-control {
+  border: 1px solid #d7d7d7 !important;
+}
+
+.ng-untouched.ng-pristine.ng-invalid {
+  border: 1px solid #d7d7d7 !important;
+}

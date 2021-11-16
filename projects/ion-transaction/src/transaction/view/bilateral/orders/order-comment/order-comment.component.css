@@ -1,0 +1,70 @@
+:host {
+  position: relative;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.root {
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+::ng-deep .comment-popover-container {
+  border-radius: 0;
+  width: 220px;
+}
+
+::ng-deep .popover .arrow::after,
+::ng-deep .popover .arrow::before {
+  display: none;
+}
+
+::ng-deep .popover .popover-body {
+  padding: 0px;
+}
+
+::ng-deep .popover .comment-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+::ng-deep .popover .comment-header {
+  background-color: #edeeef;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+
+::ng-deep .popover .comment-header .comment-title {
+  font-weight: 600;
+}
+
+::ng-deep .popover .comment-header .comment-close {
+  cursor: pointer;
+}
+
+::ng-deep .popover .comment-content {
+  display: flex;
+  padding: 10px;
+}
+
+::ng-deep .popover .comment-content .comment-text {
+  width: 100%;
+}
+
+::ng-deep .popover .comment-footer {
+  display: flex;
+  padding: 10px;
+}
+
+::ng-deep button.comment-button {
+  margin-top: 0px !important;
+  height: 25px !important;
+  width: 80px !important;
+}

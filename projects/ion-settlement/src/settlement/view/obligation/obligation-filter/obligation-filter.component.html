@@ -1,0 +1,29 @@
+<ion-form>
+  <ion-form-item>
+    <dtcc-textbox label="CUSIP Name" name="CUSIP Name" class="d-block form-input" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="cusipName$ | async" (ngModelChange)="onCusipNameChange($event)">
+    </dtcc-textbox>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-textbox label="CUSIP" name="CUSIP" class="d-block form-input" validateOnChange=true validateOnFocusOut=true
+      [ngModel]="cusipId$ | async" (ngModelChange)="onCusipIdChange($event)">
+    </dtcc-textbox>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-select clearable="false" class="d-block form-input" label="Direction" leftLabel="false"
+      dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="directions" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="direction$ | async" (ngModelChange)="onDirectionChange($event)">
+    </dtcc-select>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-select clearable="false" class="d-block form-input" label="Settlement Status" leftLabel="false"
+      dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="settlementStatuses" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="settlementStatus$ | async" (ngModelChange)="onSettlementStatusChange($event)">
+    </dtcc-select>
+  </ion-form-item>
+  <ion-form-item>
+    <button class="dtcc-component btn btn-secondary form-button" (click)="filter()">
+      Filter
+    </button>
+  </ion-form-item>
+</ion-form>

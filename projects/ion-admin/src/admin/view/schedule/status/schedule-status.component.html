@@ -1,0 +1,19 @@
+<div class="title">
+  {{title}}
+</div>
+<div class="description">
+  {{description}}
+</div>
+<div *ngIf="progress" class="error">
+  {{message}}
+</div>
+<div class="action">
+  <div *ngIf="showDate" class="settlementDate">
+    <dtcc-datepicker [isDisabled]="progress" label="Settlement Date" required=true name="settlementDate"
+      validateOnChange=true [ngModel]="{ date: settlementDate }" (ngModelChange)="onDateChange($event.date)">
+    </dtcc-datepicker>
+  </div>
+  <div [style.display]="'flex'" [style.align-items]="alignRun">
+    <button class="run dtcc-component btn btn-primary small" [disabled]="isDisabled" (click)="onRun()">Run</button>
+  </div>
+</div>

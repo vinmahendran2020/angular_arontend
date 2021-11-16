@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "ion-shared": ["dist/ion-shared"],
+      "ion-core": ["dist/ion-core"],
+      "ion-auth": ["dist/ion-auth"],
+      "ion-shell": ["dist/ion-shell"],
+      "ion-comon": ["dist/ion-common"],
+      "ion-dashboard": ["dist/ion-dashboard"],
+      "ion-admin": ["dist/ion-admin"],
+      "ion-transaction": ["dist/ion-transaction"],
+      "ion-settlement": ["dist/ion-settlement"]
+    }
+  }
+}

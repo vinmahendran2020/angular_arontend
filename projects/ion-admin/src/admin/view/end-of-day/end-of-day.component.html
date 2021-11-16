@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="status">
+    <ion-schedule-status type="end" title="End of Day Process Trigger"
+      description="The End of Day (EOD) Process Trigger runs netting for all obligations and CCAs, runs security settlement, drops all pending valued bilateral transactions, updates age counters for all failed netted obligations, runs cash settlement, drops all pending free bilateral transactions, and releases participants’ Ion cash balances."
+      message="The End of Day Processes are currently in progress." [progress]="progress$ | async" [message]="inProgressMessage$ | async"
+      [settlementDate]="settlementDate$ | async" (settlementDateChange)="onSettlementDateChange($event)"
+      (run)="onRun()"></ion-schedule-status>
+  </div>
+  <div class="divider"></div>
+  <div class="scheduler">
+    <ion-daily-schedule-viewer title="Automated End of Day Process Scheduler" [message]="submitMessage$ | async"
+      [schedule]="schedule$ | async" (edit)="openEdit()" (toggle)="onToggle($event)" (clear)="onMessageClear()">
+    </ion-daily-schedule-viewer>
+  </div>
+</div>
+<dtcc-modal-base [visible]="edit$ | async" class="medium-dialog" [modalOptions]="modalOptions" (close)="closeEdit()"
+  (visibleChange)="!$event && closeEdit()">
+  <span header>Edit Schedule</span>
+  <div content>
+    <ion-daily-schedule-editor *ngIf="edit$ | async" [schedule]="schedule$ | async" (submit)="submitEdit($event)">
+    </ion-daily-schedule-editor>
+  </div>
+</dtcc-modal-base>

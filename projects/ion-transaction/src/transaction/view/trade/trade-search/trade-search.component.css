@@ -1,0 +1,63 @@
+.search-form {
+  display: flex;
+  padding-left: 15px;
+  padding-right: 35px;
+}
+
+.form-container {
+  display: flex;
+  width: calc(100% + 10px);
+  margin: -5px;
+  justify-content: flex-start;
+}
+
+.form-item {
+  padding: 5px;
+}
+
+.count-text {
+  width: 200px;
+}
+
+.count-value-text {
+  width: 200px;
+  height: 29px;
+  margin-top: 26px;
+}
+
+.participant-value-text {
+  width: 200px;
+  height: 29px;
+  margin-top: 26px;
+}
+
+.cusip-value-text {
+  width: 200px;
+  height: 29px;
+  margin-top: 26px;
+}
+
+.direction-value-text {
+  width: 200px;
+  height: 29px;
+  margin-top: 26px;
+}
+
+.settlement-type-value-text {
+  width: 200px;
+  height: 29px;
+  margin-top: 26px;
+}
+
+.info {
+  padding-left: 30px;
+  margin-bottom: 20px;
+  font-family: ArialMT;
+  font-size: 12px;
+  color: #5F6062;
+  text-align: left;
+}
+
+:host ::ng-deep span.ng-clear-wrapper {
+  margin-top: 2px !important;
+}

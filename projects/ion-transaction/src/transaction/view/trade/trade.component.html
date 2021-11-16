@@ -1,0 +1,7 @@
+<div class="outlet">
+  <div class="wrapper">
+    <ion-trade-search></ion-trade-search>
+    <div class="divider"></div>
+    <ion-trade-summary *ngIf="hasSummary$ | async" [summary]="summary$ | async"></ion-trade-summary>
+  </div>
+</div>

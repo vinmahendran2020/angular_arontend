@@ -1,0 +1,76 @@
+:host {
+  display: block;
+}
+
+.bar {
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 30px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.error {
+  width: 100%;
+}
+
+.success p:last-child, .error p:last-child {
+  margin-bottom: 1px;
+}
+
+.title {
+  font-family: 'Arial Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  color: #000000;
+}
+
+.status {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.updated {
+  font-size: 12px;
+  color: #5f6062;
+  text-align: right;
+}
+
+.icon {
+  margin-left: 12px;
+  margin-top: -4px;
+  color: #5f6062;
+}
+
+.refresh-icon {
+  cursor: pointer;
+  color: inherit;
+}
+
+.refresh-icon[disabled] {
+  pointer-events: none;
+}
+
+::ng-deep dtcc-messagebox .notf-header,
+::ng-deep dtcc-messagebox .notf-content {
+  font-size: 14px !important;
+  color: #5f6062 !important;
+  text-align: left !important;
+  margin: 2px 15px !important;
+}
+
+::ng-deep dtcc-messagebox .title {
+  font-size: 20px !important;
+  margin-top: -5px !important;
+}
+
+::ng-deep dtcc-messagebox .close-button,
+::ng-deep dtcc-messagebox .mani-icon {
+  font-size: 20px !important;
+}

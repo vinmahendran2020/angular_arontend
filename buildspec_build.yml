@@ -1,0 +1,38 @@
+version: 0.2
+
+env:
+  # Override environment variables on codepipeline build project configuration
+  variables:
+    ECR_REGISTRY: ""
+    ECR_REPOSITORY_NAME: "ion-dev-frontend"
+    IMAGE_TAG: "latest"
+    DEV_ACCOUNT_ID: "858209661462"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+    - echo "Latest Commit=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 7)"
+    - npm install
+  pre_build:
+    commands:
+    - $(aws ecr get-login --no-include-email --registry-ids $DEV_ACCOUNT_ID --region $AWS_REGION)
+  build:
+    commands:
+    - npm run build:prod
+    - npm run test
+    - docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_NAME:$IMAGE_TAG .
+    - echo pushing to ECR HUB..
+    - docker push $ECR_REGISTRY/$ECR_REPOSITORY_NAME
+reports:
+  CoverageReports:
+    files:
+    - coverage/**/*
+    file-format: CLOVERXML
+    discard-paths: yes
+artifacts:
+  files: 
+    - k8s/**/*
+    - scripts/*
+    - buildspec_deploy.yml
+    - buildspec_verify.yml

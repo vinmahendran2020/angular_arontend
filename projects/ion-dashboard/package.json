@@ -1,0 +1,13 @@
+{
+  "name": "ion-dashboard",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "10.2.0",
+    "@angular/core": "10.2.0",
+    "ion-shared": "0.0.1",
+    "ion-common": "0.0.1"
+  },
+  "dependencies": {
+    "tslib": "2.0.3"
+  }
+}

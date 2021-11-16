@@ -1,0 +1,127 @@
+:host {
+  flex-grow: 1;
+}
+
+.summary {
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.title {
+  font-family: "Arial Narrow", sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  color: #000000;
+}
+
+.form-container {
+  display: flex;
+  width: calc(100% + 10px);
+  margin: -5px;
+  justify-content: flex-start;
+}
+
+.form-item {
+  padding: 5px;
+}
+
+.filter-container {
+  height: 65px;
+}
+
+.filter-kind-text {
+  width: 200px;
+}
+
+.filter-value-text {
+  width: 200px;
+  height: 29px;
+  margin-top: 26px;
+}
+
+.table {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  border: 1px solid #d7d7d7;
+  font-size: 1rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+.table-header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #3d3d3d;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.table-header .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  letter-spacing: -0.19px;
+  font-size: 12px;
+  font-weight: 700;
+  user-select: none;
+}
+
+.table-header .text ::ng-deep span.uif-label-text {
+  color: #fff;
+}
+
+.table-cell {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0.5em;
+  word-break: keep-all;
+}
+
+.table-cell.operation {
+  flex-grow: 0;
+  flex-basis: 200px;
+}
+
+.table-cell.delivererId,
+.table-cell.receiverId,
+.table-cell.cusip,
+.table-cell.quantity,
+.table-cell.amount,
+.table-cell.settlement {
+  flex-grow: 0;
+  flex-basis: 200px;
+}
+
+.table-cell.comment {
+  flex-grow: 0;
+  flex-basis: 70px;
+}
+
+.table-cell.value,
+.table-cell.prefunded {
+  flex-grow: 0;
+  flex-basis: 100px;
+}
+
+.table-blank-row {
+  height: 15px;
+  background-color: #d1d1d1;
+}
+
+.submit-button,
+.reset-button {
+  margin-top: 5px;
+}
+
+::ng-deep .ng-clear-wrapper {
+  display: none;
+}

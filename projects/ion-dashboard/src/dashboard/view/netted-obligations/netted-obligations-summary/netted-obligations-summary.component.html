@@ -1,0 +1,81 @@
+<div class="summary">
+
+  <div class="title">Ion Netted Obligations</div>
+
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-2">
+      <dtcc-textbox icon="fa-search" label="CUSIP" name="CUSIP" class="d-block" validateOnChange=true
+        [ngModel]="cusip$ | async" [validationError]="" (iconClick)="openCusipDialog()"
+        (ngModelChange)="onCusipChange($event)">
+      </dtcc-textbox>
+    </div>
+    <div class="col-8">
+    </div>
+    <div class="col-2">
+      <dtcc-select clearable="false" class="sort-by-kind-text" uniqueId="SortBy"
+            name="SortBy" label="Sort By" leftLabel="false" dataProviderField="label"
+            dataProviderFieldValue="id" [dataProvider]="sortOptions"
+            [ngModel]="sortBy$ | async" (ngModelChange)="onSortByChange($event)">
+      </dtcc-select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="panel-header">
+        <b>Net Long</b>
+      </div>
+      <dtcc-datagrid [style.height]="defaultGridHeight" [defaultGridHeight]="defaultGridHeight"
+        [isBasicGrid]="isBasicGrid" [gridOptions]="netLongGridOptions" [gridConfig]="gridConfig" [rowData]="longs$ | async"
+        [viewColumnDefs]="columnDefs" [showActionBar]="isBasicGrid">
+      </dtcc-datagrid>
+    </div>
+  </div>
+
+  <div class="row" style="padding-top: 20px;">
+    <div class="col-12">
+      <div class="panel-header">
+        <b>Net Short</b>
+      </div>
+      <dtcc-datagrid [style.height]="defaultGridHeight" [defaultGridHeight]="defaultGridHeight"
+        [isBasicGrid]="isBasicGrid" [gridOptions]="netShortGridOptions" [gridConfig]="gridConfig" [rowData]="shorts$ | async"
+        [viewColumnDefs]="columnDefs" [showActionBar]="isBasicGrid">
+      </dtcc-datagrid>
+    </div>
+  </div>
+
+  <div class="row" style="padding-top: 20px;">
+    <div class="col-12">
+      <div class="panel-header">
+        <b>Closed Obligations</b>
+      </div>
+      <dtcc-datagrid [style.height]="defaultGridHeight" [defaultGridHeight]="defaultGridHeight"
+        [isBasicGrid]="isBasicGrid" [gridOptions]="closedGridOptions" [gridConfig]="gridConfig" [rowData]="closed$ | async"
+        [viewColumnDefs]="columnDefs" [showActionBar]="isBasicGrid">
+      </dtcc-datagrid>
+    </div>
+  </div>
+</div>
+
+<dtcc-right-slideout *ngIf="tradesVisible$ | async" [open]="tradesVisible$ | async" class="large-dialog" width="60%"
+  [height]="height" (backdropClick)="closeTrades()">
+  <div content>
+    <ion-trade-details-dialog *ngIf="tradesVisible$ | async"></ion-trade-details-dialog>
+  </div>
+</dtcc-right-slideout>
+
+<dtcc-modal-base [visible]="transactionsVisible$ | async" class="large-dialog" [modalOptions]="modalOptions"
+  (close)="closeTransactions()" (visibleChange)="!$event && closeTransactions()">
+  <span header>Pending Activity</span>
+  <div content>
+    <ion-pending-activity-dialog *ngIf="transactionsVisible$ | async"></ion-pending-activity-dialog>
+  </div>
+</dtcc-modal-base>
+
+<dtcc-modal-base [visible]="cusipSearch$ | async" class="medium-dialog" [modalOptions]="searchModalOptions"
+  (close)="closeCusipDialog()" (visibleChange)="!$event && closeCusipDialog()">
+  <span header>CUSIP Search</span>
+  <div content>
+    <ion-cusip-dialog *ngIf="cusipSearch$ | async" (trigger)="onCusipSelect($event)"></ion-cusip-dialog>
+  </div>
+</dtcc-modal-base>

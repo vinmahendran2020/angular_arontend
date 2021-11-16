@@ -1,0 +1,17 @@
+<main class="main" role="main">
+  <div class="content">
+    <div class="dtcc-component tab-container" data-bilateral>
+      <tabset data-bilateral>
+        <tab class="tab-pane" heading="Deliver Orders" [active]="(active$ | async) === 'order'" id="order"
+          (selectTab)="onSelect($event.id)">
+        </tab>
+        <tab class="tab-pane" heading="Receiver Authorized Delivery" [active]="(active$ | async) === 'delivery'" id="delivery"
+          (selectTab)="onSelect($event.id)">
+        </tab>
+        <div class="outlet">
+          <router-outlet></router-outlet>
+        </div>
+      </tabset>
+    </div>
+  </div>
+</main>

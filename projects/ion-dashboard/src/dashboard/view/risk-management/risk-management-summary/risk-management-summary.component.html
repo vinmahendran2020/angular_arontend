@@ -1,0 +1,29 @@
+<div class="summary">
+  <div class="title">Risk Management Controls Summary</div>
+  <div class="info">
+    <div class="info-container">
+      <div class="text">
+        Collateral Group {{summary.collateralId}}
+      </div>
+    </div>
+  </div>
+  <div class="reports">
+    <ion-report-card class="col-4" title="Settlement Balance" prefix="$" [amount]="summary.settlementBalance.toString()" 
+      toolTip="Settlement Balance excludes prefunded activity" tooltipPlacement="bottom" [direction]="summary.netDirection == 'D' ? 'DB' : 'CR'">
+    </ion-report-card>
+    <ion-report-card class="col-4" title="Net Debit Cap" prefix="$" [amount]="summary.netDepitCap.toString()"></ion-report-card>
+    <ion-report-card class="col-4" title="Current Collateral Monitor" prefix="$" [amount]="summary.collateralMonitor.toString()"></ion-report-card>
+  </div>
+
+  <div class="title" style="margin-top: 20px;">Value at Risk (VaR)</div>
+  <div class="info">
+    <div class="info-container">
+      <div class="text">
+        Participant ID {{summary.participantId}}
+      </div>
+    </div>
+  </div>
+  <div class="reports">
+    <ion-report-card class="col-4" title="VaR Amount" prefix="$" [amount]="summary.valueAtRisk.toString()"></ion-report-card>
+  </div>
+</div>

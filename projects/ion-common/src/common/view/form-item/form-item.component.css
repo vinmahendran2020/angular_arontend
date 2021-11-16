@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.form-item {
+  padding: 5px;
+}
+
+::ng-deep .form-input {
+  width: 210px;
+}
+
+::ng-deep span.uif-label-text {
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+::ng-deep span.text-danger {
+  font-size: 11px;
+  color: #ce0000 !important;
+  text-align: left;
+  margin-top: 5px;
+  white-space: nowrap;
+}
+
+::ng-deep .form-button, ::ng-deep .reset-button {
+  width: 119px;
+  max-width: 119px !important;
+  height: 30px !important;
+  line-height: 10px;
+  margin-top: 26px;
+  font-size: 12px;
+}

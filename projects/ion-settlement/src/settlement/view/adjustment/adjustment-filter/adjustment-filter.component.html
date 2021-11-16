@@ -1,0 +1,34 @@
+<ion-form>
+  <ion-form-item>
+    <dtcc-textbox label="Transaction ID" name="Transaction ID" class="d-block form-input" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="transactionId$ | async" (ngModelChange)="onTransactionIdChange($event)">
+    </dtcc-textbox>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-datepicker label="CCA Settlement Date" name="CCA Settlement Date" class="d-block form-input"
+      [ngModel]="settlementDate$ | async" validateOnChange=true (ngModelChange)="onSettlementDateChange($event.date)">
+    </dtcc-datepicker>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-select clearable="false" class="d-block form-input" label="Credit/Debit" leftLabel="false"
+      dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="actions" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="action$ | async" (ngModelChange)="onActionChange($event)">
+    </dtcc-select>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-select clearable="false" class="d-block form-input" label="CCA Status" leftLabel="false"
+      dataProviderField="label" dataProviderFieldValue="id" [dataProvider]="statuses" validateOnChange=true
+      validateOnFocusOut=true [ngModel]="status$ | async" (ngModelChange)="onStatusChange($event)">
+    </dtcc-select>
+  </ion-form-item>
+  <ion-form-item>
+    <dtcc-datepicker label="Creation Date" name="Creation Date" class="d-block form-input"
+      [ngModel]="creationDate$ | async" validateOnChange=true (ngModelChange)="onCreationDateChange($event.date)">
+    </dtcc-datepicker>
+  </ion-form-item>
+  <ion-form-item>
+    <button class="dtcc-component btn btn-secondary form-button" (click)="filter()">
+      Filter
+    </button>
+  </ion-form-item>
+</ion-form>

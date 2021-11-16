@@ -1,0 +1,5 @@
+<div class="wrapper">
+    <ion-positions-search></ion-positions-search>
+    <div class="divider"></div>
+    <ion-positions-summary *ngIf="summary$ | async" [summary]="summary$ | async"></ion-positions-summary>
+</div>

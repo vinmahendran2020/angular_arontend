@@ -1,0 +1,87 @@
+<div class="summary">
+  <div class="title">Order</div>
+  <div class="table">
+    <div class="table-header">
+      <div class="table-cell id">
+        <span class="text">
+          #
+        </span>
+      </div>
+      <div class="table-cell action">
+        <span class="text">
+          <dtcc-form-label required=true class="mr-2">
+            Action
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell cusip">
+        <span class="text">
+          <dtcc-form-label required=true class="mr-2">
+            CUSIP
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell quantity">
+        <span class="text">
+          <dtcc-form-label required=true class="mr-2">
+            Quantity
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell cusipName">
+        <span class="text">
+          <dtcc-form-label class="mr-2">
+            CUSIP Name
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell totalFreePstn">
+        <span class="text">
+          <dtcc-form-label class="mr-2">
+            Total Free Position
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell memoSegPstn">
+        <span class="text">
+          <dtcc-form-label class="mr-2">
+            Memo Seg Position
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell freeExcessPstn">
+        <span class="text">
+          <dtcc-form-label class="mr-2">
+            Free Excess Position
+          </dtcc-form-label>
+        </span>
+      </div>
+      <div class="table-cell remove">
+        <span class="text">
+        </span>
+      </div>
+    </div>
+    <ion-memo-segregation-summary *ngFor="let id of (memoIds$ | async)" [id]="id"></ion-memo-segregation-summary>
+    <div class="table-footer">
+      <ion-form-item>
+        <button class="dtcc-component btn form-button btn-secondary addrow-button" (click)="addRow()">
+          Add Row
+        </button>
+      </ion-form-item>
+    </div>
+    <div class="table-blank-row"></div>
+  </div>
+  <ion-form start=true>
+    <ion-form-item>
+      <button [disabled]="submitDisabled$ | async" class="dtcc-component btn btn-primary form-button submit-button"
+        (click)="submit()">
+        Submit
+      </button>
+    </ion-form-item>
+    <ion-form-item>
+      <button class="dtcc-component btn btn-secondary form-button form-button reset-button" (click)="reset()">
+        Reset
+      </button>
+    </ion-form-item>
+  </ion-form>
+</div>

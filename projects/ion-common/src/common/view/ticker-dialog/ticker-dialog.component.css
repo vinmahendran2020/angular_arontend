@@ -1,0 +1,28 @@
+::ng-deep .medium-dialog {
+    max-width: 650px;
+}
+
+.dialog-form {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.securityName {
+    max-width: 100%;
+}
+
+.issuerName {
+    max-width: 100%;
+}
+
+.cusip {
+    max-width: 100%;
+}
+
+.header {
+    display: flex;
+    font-size: 13px;
+    color: #5F6062;
+    text-align: left;
+}
